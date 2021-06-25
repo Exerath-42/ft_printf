@@ -14,7 +14,7 @@ SRCS		= parsing/parse_input.c parsing/parse_utils.c parsing/parse.c \
 				other_utils/ft_putnbr_base.c other_utils/ft_putptr.c other_utils/ft_putstr.c \
 				print/print_char.c print/print_int.c print/print_pointer.c \
 				print/print_string.c print/print_unsigned.c print/print.c \
-				other_utils/ft_putstr_custom.c ft_printf.c
+				other_utils/ft_putstr_custom.c other_utils/ft_negative.c ft_printf.c 
 
 OBJS		= $(patsubst %.c,%.o,$(SRCS))
 

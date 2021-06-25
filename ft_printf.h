@@ -20,6 +20,7 @@ typedef struct s_flags
 	void	*data;
 	int		pure_width;
 	int		failed;
+	int		empty;
 }	t_flags;
 
 int			ft_printf(const char *format, ...);
@@ -56,6 +57,7 @@ int			max(int a, int b);
 void		fill_str(int c, int n);
 void		ft_putchar(char c);
 int			is_it_in(char c, const char *str);
+int			ft_negative(int n);
 
 int			print(t_flags *flags);
 int			print_int(t_flags *flags);

@@ -1,14 +1,14 @@
 #include "../ft_printf.h"
 
-static int	ft_negative(int n)
-{
-	if (n < 0)
-		return (-n);
-	return (n);
-}
-
 char	*parse_flags(char *input, t_flags *flags)
 {
+	while (*input == ' ')
+	{
+		flags -> empty = 1;
+		input++;
+	}
+	if (flags -> empty == 1)
+		ft_putchar(' ');
 	while (is_it_in(*input, "-0"))
 	{
 		if (*input == '0')
@@ -41,6 +41,21 @@ char	*parse_width(char *input, t_flags *flags, va_list ap)
 	}
 }
 
+static char 	*ft_zero_in_input_check(char *input, t_flags *flags)
+{
+	int	zero_in_input;
+
+	zero_in_input = 0;
+	if (*input == '0' && *(input + 1)
+		&& *(input + 1) >= 48 && *(input + 1) <= 57)
+		zero_in_input++;
+	flags -> precision = ft_atoi(input);
+	if (ft_isdigit(*input))
+		input += count_digits(flags -> precision);
+	input += zero_in_input;
+	return (input);
+}
+
 char	*parse_precision(char *input, t_flags *flags, va_list ap)
 {
 	if (*input == '.')
@@ -54,14 +69,10 @@ char	*parse_precision(char *input, t_flags *flags, va_list ap)
 		}
 		else
 		{
-			flags -> precision = ft_atoi(input);
-			if (ft_isdigit(*input))
-				input += count_digits(flags -> precision);
-			return (input);
+			return (ft_zero_in_input_check(input, flags));
 		}
 	}
-	else
-		return (input);
+	return (input);
 }
 
 char	*parse_cspdiuxX(char *input, t_flags *flags)
