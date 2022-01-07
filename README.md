@@ -4,7 +4,7 @@ This project is about recoding the famous printf C function.
 ```
 $int ft_printf(const char * (restrict) format, ...);
 ```
-##How to use
+## How to use
 
 **Clone**
 ```
@@ -20,7 +20,7 @@ ft_printf can print different contents depending on conversions and flags. You c
 ```
 %[flag][min-width].[precision][length modifier][conversion specifier]
 ```
-####Conversions:
+#### Conversions:
 ```
 - c    char
 - s    char *
