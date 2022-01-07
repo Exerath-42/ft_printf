@@ -31,3 +31,5 @@ ft_printf can print different contents depending on conversions and flags. You c
 - x/X: unsigned int (hexadecimal)
 - d/i: int
 ```
+#### You can check task file
+[subject](ft-printf.en.subject.pdf)
